@@ -16,14 +16,6 @@ export const tasks = (state: ITasks = initialState, action: any): ITasks => {
                 ...state,
                 entities: response as Array<Task>,
             };
-        case 'add_new_task':
-            return {
-                ...state,
-            }
-        case 'delete_task':
-            return {
-                ...state,
-            }
         default:
             return state;
     }

@@ -16,7 +16,8 @@ export const AddTask: React.FC<Events> = ({saveNewTask}) => {
     const [name, setName] = useState("");
 
     function saveButtonClickHandler() {
-        saveNewTask({taskId: id, taskName: name})
+        saveNewTask({taskId: 4, taskName: name});
+        setName("");
     }
 
     const buildHandler = (setter: (val: string) => void) => (e: ChangeEvent<HTMLInputElement>): void => {

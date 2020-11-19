@@ -1,5 +1,6 @@
 .container {
     display: flex;
+    flex-flow: column;
     justify-content: center;
     background-color: #61dafb;
 }

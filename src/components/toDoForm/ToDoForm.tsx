@@ -12,20 +12,19 @@ interface Events {
 
     saveNewTask(task: Task): void;
 
-    deleteTask(task: Task): void;
+    deleteTask(taskId: number): void;
 }
 
 interface Props {
     entities: Array<Task>;
 }
 
-const Form: React.FC<Events & Props> = ({saveNewTask, loadAllTasks, entities}) => {
+const Form: React.FC<Events & Props> = ({saveNewTask, loadAllTasks, deleteTask, entities}) => {
 
     return (
         <div className={styles.container}>
-            yo!
             <AddTask saveNewTask={saveNewTask}/>
-            <TaskListBuilder loadAllTasks={loadAllTasks} entities={entities}/>
+            <TaskListBuilder loadAllTasks={loadAllTasks} deleteTask={deleteTask} entities={entities} />
         </div>
     )
 };

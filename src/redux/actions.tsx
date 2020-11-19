@@ -5,13 +5,23 @@ import {serverRequest} from "../fakeServer";
 export const loadAllTasks = (): AsyncAction => (dispatch: AppDispatch) => {
     serverRequest(processResponse, "loadAllTasks", null);
     function processResponse(response: Array<Task>) {
+        console.log(response);
         dispatch({type: 'load_all_tasks', response});
     }
 };
 
-export const saveNewTask = () => {
+export const saveNewTask = (task: Task): AsyncAction => (dispatch:AppDispatch) => {
+    console.log("save");
+    serverRequest(callback, "saveNewTask", task);
+    function callback() {
+        dispatch(loadAllTasks());
+    }
 };
 
-export const deleteTask = () => {
+export const deleteTask = (taskId: number): AsyncAction => (dispatch:AppDispatch) => {
+    serverRequest(callback, "deleteTask", taskId);
+    function callback() {
+        dispatch(loadAllTasks());
+    }
 };
 
