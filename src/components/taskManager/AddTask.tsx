@@ -12,7 +12,6 @@ interface Events {
 }
 
 export const AddTask: React.FC<Events> = ({saveNewTask}) => {
-    const [id, setId] = useState();
     const [name, setName] = useState("");
 
     function saveButtonClickHandler() {

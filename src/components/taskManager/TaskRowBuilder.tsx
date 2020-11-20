@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ChangeEvent, useState} from "react";
-import styles from './addTask.module.css'
+import styles from './taskRowBuilder.module.css'
 
 export interface Task {
     taskId: number;
@@ -19,10 +19,10 @@ export const TaskRowBuilder: React.FC<Events & Props> = ({deleteTask, taskList})
     <>
         {
             taskList.map(task =>
-            <tr key={task.taskId}>
-                <td>{task.taskName}</td>
+            <div className={styles.listRow} key={task.taskId}>
+                <div>{task.taskName}</div>
                 <button onClick={() => deleteTask(task.taskId)}>del</button>
-            </tr>
+            </div>
                 )
         }
     </>

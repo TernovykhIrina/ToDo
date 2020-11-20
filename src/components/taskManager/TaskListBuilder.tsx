@@ -2,6 +2,7 @@ import * as React from "react";
 import {useEffect} from "react";
 import {Task} from "./AddTask";
 import {TaskRowBuilder} from "./TaskRowBuilder";
+import styles from './taskListBuilder.module.css'
 
 interface Props {
     entities: Array<Task>;
@@ -16,12 +17,8 @@ export const TaskListBuilder: React.FC<Events & Props> = ({loadAllTasks, deleteT
     useEffect(loadAllTasks, [])
 
     return (
-        <div>
-            <table>
-                <tbody>
-                <TaskRowBuilder deleteTask={deleteTask} taskList={entities}/>
-                </tbody>
-            </table>
+        <div className={styles.taskList}>
+            <TaskRowBuilder deleteTask={deleteTask} taskList={entities}/>
         </div>
     )
 };

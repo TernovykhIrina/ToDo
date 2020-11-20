@@ -5,10 +5,7 @@ interface IFakeState{
 }
 
 const dbState: IFakeState = {
-    tasks: [{taskId: 1, taskName: "Первая задача"},
-        {taskId: 2, taskName: "Вторая задача"},
-        {taskId: 3, taskName: "Третья задача"}
-    ],
+    tasks: [],
 };
 
 const loadAllTasks = () => {
@@ -20,7 +17,9 @@ const deleteTask = (taskId: number) => {
 }
 
 const saveNewTask = (task: Task) => {
-    dbState.tasks = [...dbState.tasks, {...task}];
+    const nextId: number = dbState.tasks[dbState.tasks.length-1]? dbState.tasks[dbState.tasks.length-1].taskId + 1 : 0;
+    const newTask: Task = {taskId: nextId, taskName: task.taskName};
+    dbState.tasks = [...dbState.tasks, {...newTask}];
 }
 
 const mapping: any = {
