@@ -15,7 +15,7 @@ export const AddTask: React.FC<Events> = ({saveNewTask}) => {
     const [name, setName] = useState("");
 
     function saveButtonClickHandler() {
-        saveNewTask({taskId: 4, taskName: name});
+        saveNewTask({taskId: 0, taskName: name});
         setName("");
     }
 
@@ -24,21 +24,18 @@ export const AddTask: React.FC<Events> = ({saveNewTask}) => {
     };
 
     return (
-        <div className={styles.container}>
-            <label className={styles.box1}>
-                Add task
+        <div className={styles.container_add_task}>
                 <input
                 className={styles.input}
                 type="text"
                 value={name}
                 onChange={buildHandler(setName)}
                 />
-            </label>
             <button
                 className={styles.button}
                 onClick={saveButtonClickHandler}
                 >
-                Save
+                Add
             </button>
         </div>
     )

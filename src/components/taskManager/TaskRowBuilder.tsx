@@ -19,11 +19,15 @@ export const TaskRowBuilder: React.FC<Events & Props> = ({deleteTask, taskList})
     <>
         {
             taskList.map(task =>
-            <div className={styles.listRow} key={task.taskId}>
-                <div>{task.taskName}</div>
-                <button onClick={() => deleteTask(task.taskId)}>del</button>
-            </div>
-                )
+                <div className={styles.list_row} key={task.taskId}>
+                    <div className={styles.task_name}>{task.taskName}</div>
+                    <div className={styles.buttons_box}>
+                        <button>done</button>
+                        <button>edit</button>
+                        <button onClick={() => deleteTask(task.taskId)}>del</button>
+                    </div>
+                </div>
+            )
         }
     </>
     || <></>

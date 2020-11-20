@@ -13,7 +13,7 @@ const loadAllTasks = () => {
 };
 
 const deleteTask = (taskId: number) => {
-    dbState.tasks = dbState.tasks.filter(tsk => tsk.taskId != taskId);
+    dbState.tasks = dbState.tasks.filter(tsk => tsk.taskId !== taskId);
 }
 
 const saveNewTask = (task: Task) => {

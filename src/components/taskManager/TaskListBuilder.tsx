@@ -17,7 +17,7 @@ export const TaskListBuilder: React.FC<Events & Props> = ({loadAllTasks, deleteT
     useEffect(loadAllTasks, [])
 
     return (
-        <div className={styles.taskList}>
+        <div className={styles.task_list}>
             <TaskRowBuilder deleteTask={deleteTask} taskList={entities}/>
         </div>
     )

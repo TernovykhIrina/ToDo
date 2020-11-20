@@ -1,4 +1,21 @@
-.listRow {
+.list_row {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    border-bottom: 1px solid rgba(31, 32, 65, 0.08);
+}
+
+.task_name {
+    overflow: hidden;
+}
+
+.buttons_box {
+    display: flex;
+    margin-left: 10px;
+}
+
+.buttons_box button {
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid rgba(31, 32, 65, 0.2);
 }
