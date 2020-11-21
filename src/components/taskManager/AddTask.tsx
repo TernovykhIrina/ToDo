@@ -15,8 +15,12 @@ export const AddTask: React.FC<Events> = ({saveNewTask}) => {
     const [name, setName] = useState("");
 
     function saveButtonClickHandler() {
-        saveNewTask({taskId: 0, taskName: name});
-        setName("");
+        if (name === "") {
+            alert("Поле добавления задач не заполнено. Введите задачу.");
+        } else {
+            saveNewTask({taskId: 0, taskName: name});
+            setName("");
+        }
     }
 
     const buildHandler = (setter: (val: string) => void) => (e: ChangeEvent<HTMLInputElement>): void => {
@@ -26,8 +30,9 @@ export const AddTask: React.FC<Events> = ({saveNewTask}) => {
     return (
         <div className={styles.container_add_task}>
                 <input
-                className={styles.input}
+                className={styles.task_input}
                 type="text"
+                placeholder={"Введите задачу"}
                 value={name}
                 onChange={buildHandler(setName)}
                 />

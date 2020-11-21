@@ -19,3 +19,11 @@
     border-radius: 10px;
     border: 2px solid rgba(31, 32, 65, 0.2);
 }
+
+.background_text {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 20px;
+    color: rgba(31, 32, 65, 0.3);
+}

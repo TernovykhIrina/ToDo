@@ -11,12 +11,18 @@ export const loadAllTasks = (): AsyncAction => (dispatch: AppDispatch) => {
 };
 
 export const saveNewTask = (task: Task): AsyncAction => (dispatch:AppDispatch) => {
-    console.log("save");
     serverRequest(callback, "saveNewTask", task);
     function callback() {
         dispatch(loadAllTasks());
     }
 };
+
+export const editTask = (task: Task): AsyncAction => (dispatch:AppDispatch) => {
+    serverRequest(callback, "editTask", task);
+    function callback() {
+        dispatch(loadAllTasks());
+    }
+}
 
 export const deleteTask = (taskId: number): AsyncAction => (dispatch:AppDispatch) => {
     serverRequest(callback, "deleteTask", taskId);

@@ -9,13 +9,14 @@ export interface Task {
 
 interface Events {
     deleteTask(taskId: number): void;
+    editTask(task: Task): void;
 }
 interface Props {
     taskList: Array<Task>;
 }
 
-export const TaskRowBuilder: React.FC<Events & Props> = ({deleteTask, taskList}) =>
-    taskList &&
+export const TaskRowBuilder: React.FC<Events & Props> = ({deleteTask, editTask, taskList}) =>
+    taskList && taskList.length !== 0 &&
     <>
         {
             taskList.map(task =>
@@ -23,12 +24,12 @@ export const TaskRowBuilder: React.FC<Events & Props> = ({deleteTask, taskList})
                     <div className={styles.task_name}>{task.taskName}</div>
                     <div className={styles.buttons_box}>
                         <button>done</button>
-                        <button>edit</button>
+                        <button onClick={() => editTask({taskName: "Edited task", taskId: task.taskId})}>edit</button>
                         <button onClick={() => deleteTask(task.taskId)}>del</button>
                     </div>
                 </div>
             )
         }
     </>
-    || <></>
+    || <div className={styles.background_text}> У Вас нет ни одной задачи</div>
 ;

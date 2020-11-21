@@ -22,10 +22,20 @@ const saveNewTask = (task: Task) => {
     dbState.tasks = [...dbState.tasks, {...newTask}];
 }
 
+const editTask = (task: Task) => {
+    dbState.tasks = dbState.tasks.map(tsk => {
+        if (tsk.taskId !== task.taskId) {
+            return tsk;
+        }
+        return {...tsk, taskName: task.taskName}
+    });
+}
+
 const mapping: any = {
     "loadAllTasks": loadAllTasks,
     "deleteTask": deleteTask,
     "saveNewTask": saveNewTask,
+    "editTask": editTask,
 }
 
 export const serverRequest = (callback: any, url: string, ...params: Array<any>) => {
