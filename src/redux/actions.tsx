@@ -22,10 +22,17 @@ export const editTask = (task: Task): AsyncAction => (dispatch:AppDispatch) => {
     function callback() {
         dispatch(loadAllTasks());
     }
-}
+};
 
 export const deleteTask = (taskId: number): AsyncAction => (dispatch:AppDispatch) => {
     serverRequest(callback, "deleteTask", taskId);
+    function callback() {
+        dispatch(loadAllTasks());
+    }
+};
+
+export const changeIsDone = (taskId: number): AsyncAction => (dispatch:AppDispatch) => {
+    serverRequest(callback, "changeIsDone", taskId);
     function callback() {
         dispatch(loadAllTasks());
     }

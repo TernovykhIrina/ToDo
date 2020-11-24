@@ -5,6 +5,8 @@ import styles from './addTask.module.css'
 export interface Task {
     taskId: number;
     taskName: string;
+    isDone: boolean;
+    priority: number;
 }
 
 interface Events {
@@ -18,7 +20,7 @@ export const AddTask: React.FC<Events> = ({saveNewTask}) => {
         if (name === "") {
             alert("Поле добавления задач не заполнено. Введите задачу.");
         } else {
-            saveNewTask({taskId: 0, taskName: name});
+            saveNewTask({taskId: 0, taskName: name, isDone: false, priority: 0});
             setName("");
         }
     }
@@ -29,17 +31,17 @@ export const AddTask: React.FC<Events> = ({saveNewTask}) => {
 
     return (
         <div className={styles.container_add_task}>
-                <input
+            <input
                 className={styles.task_input}
                 type="text"
                 placeholder={"Введите задачу"}
                 value={name}
                 onChange={buildHandler(setName)}
-                />
+            />
             <button
                 className={styles.button}
                 onClick={saveButtonClickHandler}
-                >
+            >
                 Add
             </button>
         </div>

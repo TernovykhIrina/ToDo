@@ -10,16 +10,23 @@ interface Props {
 
 interface Events {
     loadAllTasks(): void;
+
     deleteTask(taskId: number): void;
+
     editTask(task: Task): void;
+
+    changeIsDone(taskId: number): void;
 }
 
-export const TaskListBuilder: React.FC<Events & Props> = ({loadAllTasks, deleteTask, editTask, entities}) => {
+export const TaskListBuilder: React.FC<Events & Props> = ({loadAllTasks, deleteTask, editTask, changeIsDone, entities}) => {
     useEffect(loadAllTasks, []);
 
     return (
         <div className={styles.task_list}>
-            <TaskRowBuilder deleteTask={deleteTask} editTask={editTask} taskList={entities}/>
+            <TaskRowBuilder deleteTask={deleteTask}
+                            editTask={editTask}
+                            changeIsDone={changeIsDone}
+                            taskList={entities}/>
         </div>
     )
 };
